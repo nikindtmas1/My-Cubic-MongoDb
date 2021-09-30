@@ -11,7 +11,7 @@ async function getAll(query){
 
 async function getOne(id){
 
-    let results = await Cube.findById(id);
+    let results = await Cube.findById(id).lean();
 
     return results;
 }
