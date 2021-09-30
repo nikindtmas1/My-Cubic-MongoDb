@@ -1,7 +1,9 @@
 
 const homePage = require('./controllers/homeController');
+const cubController = require('./controllers/cubeController');
 
 module.exports = (app) => {
 
-    app.get('/', homePage)
+    app.use('/', homePage);
+    app.use('/cubics', cubController);
 }
