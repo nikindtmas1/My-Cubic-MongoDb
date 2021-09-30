@@ -15,6 +15,11 @@ router.get('/create', (req, res) => {
     res.render('create');
 });
 
+router.get('/details/:cubId', async (req, res) => {
+    let result = await cubeService.getOne(req.params.cubId);
+
+    res.render('details', {title: 'Cube Details', result})
+});
 
 router.get('*', (req, res) => {
     res.render('404');
