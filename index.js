@@ -3,13 +3,14 @@ const app = express();
 
 const portConfig = require('./config/configPort');
 const expressConfig = require('./config/configExpress');
+const mongooseConfig = require('./config/configMongoose');
+
 const routes = require('./routes');
 
 
+
 expressConfig(app);
-// app.get('/', (req, res) => {
-//     res.send('<h1>Hello Express</h1>')
-// });
+mongooseConfig(app);
 
 routes(app);
 
