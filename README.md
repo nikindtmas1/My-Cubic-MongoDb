@@ -16,9 +16,9 @@ git clone https://github.com/nikindtmas1/My-Cubic-MongoDb
 npm install
 open or create mongodb server
 open or install mongodb compas
-open command prompt like admin and write "mongod" command then pres enter
+open command prompt like admin and write "mongod" command, then pres enter
 this will start mongodb server
-create collection cubicle
+create collection "cubicle"
 npm start
 open new tab in brawser on localhost:5000
 ```
