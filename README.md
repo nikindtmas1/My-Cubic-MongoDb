@@ -14,10 +14,10 @@ Multi Page Application
 ```
 git clone https://github.com/nikindtmas1/My-Cubic-MongoDb
 npm install
-open or create mongodb data base
+open or create mongodb database
 open or install mongodb compas
 open command prompt like admin and write "mongod" command, then pres enter
-create collection "cubicle"
+create database collection "cubicle" by mongodb compas
 npm start
 open new tab in brawser on localhost:5000
 ```
