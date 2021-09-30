@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const cubeService = require('../srevices/cubeService');
+
 router.get('/', (req, res) => {
-    res.render('index');
+    cubeService.getAll()
+    .then(results => {
+
+        res.render('index', {title: 'Brows', results});
+    })
 });
 
 router.get('/create', (req, res) => {
