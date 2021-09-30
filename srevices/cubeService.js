@@ -9,7 +9,15 @@ async function getAll(query){
    return results;
 }
 
+async function getOne(id){
+
+    let results = await Cube.findById(id);
+
+    return results;
+}
+
 module.exports = {
 
-    getAll
+    getAll,
+    getOne
 }
