@@ -16,8 +16,17 @@ async function getOne(id){
     return results;
 }
 
+function create(data){
+    
+    let cube = new Cube(data);
+
+   return cube.save();
+
+}
+
 module.exports = {
 
     getAll,
-    getOne
+    getOne,
+    create
 }
