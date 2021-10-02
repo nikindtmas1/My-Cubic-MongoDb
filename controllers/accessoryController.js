@@ -6,7 +6,7 @@ router.get('/create', (req, res) => {
     res.render('createAccessory');
 });
 
-router.post('/accessories/create', (req, res) => {
+router.post('/create', (req, res) => {
     let data = req.body;
     console.log(data);
     accessoryService.createAcces(data);
