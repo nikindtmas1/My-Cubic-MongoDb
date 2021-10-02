@@ -7,6 +7,12 @@ async function getAllAccessory() {
     return result;
 }
 
+async function getAllWithout(ids) {
+    let result = await Accessory.find({_id: {$nin: ids}}).lean();
+
+    return result;
+}
+
 function createAcces(data) {
     let accessory = new Accessory(data);
 
@@ -16,6 +22,7 @@ function createAcces(data) {
 module.exports = {
 
     getAllAccessory,
+    getAllWithout,
     createAcces,
 
 }
