@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 router.get('/create/accessory', (req, res) => {
-    res.render('attachAccessory', {layout: false})
+    res.render('createAccessory');
 });
 
 module.exports = router;
