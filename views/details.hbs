@@ -6,6 +6,17 @@
         <p><span>Description:</span> {{result.description}}</p>
         <p><span>Difficulty level:</span> {{result.difficultyLevel}}</p>
         <a class="btn" href="/cubics">Back</a>
-        <a class="btn" href="/attach/accessory/{{result._id}}">Attach Accessory</a>
+        <a class="btn" href="/cubics/{{result._id}}/attach">Attach Accessory</a>
       </div>
+       <h2>Accessories</h2>
+            <div class="accessories">
+
+               {{#each result.accessories}}
+                {{>accessory}}
+                {{else}}
+                <h3 class="italic">This cube has no accessories yet...</h3>
+
+               {{/each}}
+             
+            </div>
     </main>
