@@ -1,5 +1,12 @@
 const Accessory = require('../models/accessory');
 
+async function getAllAccessory() {
+
+    let result = await Accessory.find({}).lean();
+
+    return result;
+}
+
 function createAcces(data) {
     let accessory = new Accessory(data);
 
@@ -8,6 +15,7 @@ function createAcces(data) {
 
 module.exports = {
 
+    getAllAccessory,
     createAcces,
-    
+
 }
