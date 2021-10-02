@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const accessotySchema = new mongoose.Schema({
+const accessorySchema = new mongoose.Schema({
     name:{
         type: String,
         required: true
@@ -15,4 +15,6 @@ const accessotySchema = new mongoose.Schema({
         required: true,
         maxlength: 100
     }
-})
+});
+
+module.exports = mongoose.model('Accessory', accessorySchema);
