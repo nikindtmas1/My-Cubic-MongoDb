@@ -34,7 +34,7 @@ router.get('/:cubId/attach', async (req, res) => {
     let result = await cubeService.getOne(req.params.cubId);
     let accessories = await accessoryService.getAllWithout(result.accessories);
 
-    res.render('attachAccessory', result, accessories);
+    res.render('attachAccessory', {result, accessories});
 });
 
 router.get('*', (req, res) => {
