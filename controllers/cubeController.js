@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const cubeService = require('../srevices/cubeService');
+const accessoryService = require('../srevices/accessoryService');
 
 router.get('/', (req, res) => {
     cubeService.getAll()
@@ -27,6 +28,13 @@ router.get('/details/:cubId', async (req, res) => {
     let result = await cubeService.getOne(req.params.cubId);
 
     res.render('details', {title: 'Cube Details', result})
+});
+
+router.get('/:cubId/attach', async (req, res) => {
+    let result = await cubeService.getOne(req.params.cubId);
+    let accessories = await accessoryService.getAllWithout(result.accessories);
+
+    res.render('attachAccessory', result, accessories);
 });
 
 router.get('*', (req, res) => {
