@@ -14,9 +14,9 @@ router.post('/create', accessoryValid, (req, res) => {
     res.redirect('/')
 });
 
-router.get('/attach/accessory/cubId', (req, res) => {
-    res.render('attachAccessory');
-});
+// router.get('/attach/accessory/cubId', (req, res) => {
+//     res.render('attachAccessory');
+// });
 
 function accessoryValid(req, res, next) {
     let isValidAccess = true;

@@ -1,16 +1,12 @@
 const Accessory = require('../models/accessory');
 
-async function getAllAccessory() {
+function getAllAccessory() {
 
-    let result = await Accessory.find({}).lean();
-
-    return result;
+    return Accessory.find({}).lean();
 }
 
-async function getAllWithout(ids) {
-    let result = await Accessory.find({_id: {$nin: ids}}).lean();
-
-    return result;
+function getAllWithout(ids) {
+   return Accessory.find({_id: {$nin: ids}}).lean();
 }
 
 function createAcces(data) {
