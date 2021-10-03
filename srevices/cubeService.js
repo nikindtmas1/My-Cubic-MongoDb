@@ -5,6 +5,10 @@ async function getAll(query){
 
    let results = await Cube.find({}).lean();
 
+   if(query.search){
+     results = results.filter((x) => x.name.toLowerCase().includes(query.search));
+   }
+
 
    return results;
 }
