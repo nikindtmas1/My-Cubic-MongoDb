@@ -20,7 +20,13 @@ const cubicSchema = new mongoose.Schema({
         required: true,
         min: 1,
         max: 6
-    }
+    },
+    accessories: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Accessory',
+        }
+    ]
 });
 
 module.exports = mongoose.model('Cube', cubicSchema);
