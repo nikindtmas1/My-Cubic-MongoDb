@@ -46,6 +46,10 @@ async function attachAccessory(cubId, accessoryId){
     result.accessories.push(accessory);
 
     return result.save();
+};
+
+function getOneWithAccessories(id){
+    return Cube.findById(id).populate('accessories').lean();
 }
 
 module.exports = {
@@ -54,5 +58,5 @@ module.exports = {
     getOne,
     create,
     attachAccessory,
-
+    getOneWithAccessories
 }
