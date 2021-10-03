@@ -1,4 +1,4 @@
-# My-Cubic-MongoDb
+# My-Cubic-MongoDB
  Student project
 Multi Page Application
 
