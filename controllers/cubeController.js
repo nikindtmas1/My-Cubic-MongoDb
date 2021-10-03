@@ -5,7 +5,7 @@ const cubeService = require('../srevices/cubeService');
 const accessoryService = require('../srevices/accessoryService');
 
 router.get('/', (req, res) => {
-    cubeService.getAll()
+    cubeService.getAll(req.query)
     .then(results => {
 
         res.render('index', {title: 'Brows', results});
