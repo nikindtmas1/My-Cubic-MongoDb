@@ -37,6 +37,11 @@ router.get('/:cubId/attach', async (req, res) => {
     res.render('attachAccessory', {result, accessories});
 });
 
+router.post('/:cubId/attach', async (req, res) => {
+    cubeService.attachAccessory(req.params.cubId, req.body.accessory)
+    .then(() => res.redirect(`/cubics/details/${req.params.cubId}`))
+});
+
 router.get('*', (req, res) => {
     res.render('404');
 });
