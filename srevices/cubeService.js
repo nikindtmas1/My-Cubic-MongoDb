@@ -1,6 +1,6 @@
 const Cube = require('../models/cubic');
 const Accessory = require('../models/accessory');
-const accessory = require('../models/accessory');
+
 
 
 async function getAll(query){
@@ -54,5 +54,5 @@ module.exports = {
     getOne,
     create,
     attachAccessory,
-    
+
 }
