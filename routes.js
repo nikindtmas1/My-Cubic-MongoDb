@@ -9,6 +9,6 @@ module.exports = (app) => {
     app.use('/', homePage);
     app.use('/cubics', cubController);
     app.use('/accessories', accessoryController);
-    app.use(authController);
+    app.use('/auth', authController);
     
 }
