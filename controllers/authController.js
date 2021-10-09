@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+//const bcrypt = require('bcrypt');
+
 const userService = require('../srevices/userService');
 
 
@@ -18,11 +20,11 @@ router.get('/register', (req, res) => {
     res.render('auth/register')
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
+    
     let data = req.body
-   console.log(data);
 
-    userService.createUser(data)
+   await userService.createUser(data)
 
     res.redirect('/auth/login')
 });
