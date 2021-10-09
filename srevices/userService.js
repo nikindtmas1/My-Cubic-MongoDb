@@ -1,10 +1,17 @@
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 function createUser(data){
+    let username = data.username;
+    let password = data.password;
+
+    bcrypt.hash(password, 10)
+    .then(hash => {
+        let user = new User({username, password: hash});
     
-    let user = new User(data);
-    console.log(user);
-   return user.save();
+        return user.save();
+    })
+    
 
 };
 
