@@ -14,9 +14,14 @@ router.post('/login', async (req, res) => {
     let data = req.body;
     // console.log(data.username);
     // console.log(data.password);
-    await userService.loginUser(data);
+    let user = await userService.loginUser(data);
 
-    res.redirect('/')
+    if(user){
+
+        res.redirect('/')
+    }else {
+        res.redirect('404')
+    }
 });
 
 router.get('/register', (req, res) => {
