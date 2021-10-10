@@ -10,7 +10,11 @@ router.get('/login', (req, res) => {
     res.render('auth/login')
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
+    let data = req.body;
+    // console.log(data.username);
+    // console.log(data.password);
+    await userService.loginUser(data);
 
     res.redirect('/')
 });
