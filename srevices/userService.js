@@ -31,7 +31,8 @@ function loginUser(data){
         if(isValid){
             return user
         }else {
-            throw { message: 'Username or password are invalid'}
+            //throw { message: 'Username or password are invalid'}
+            return null;
         }
     })
     
@@ -39,7 +40,7 @@ function loginUser(data){
     // .then(hash => {
     //   return  pass = hash;
     // })
-    console.log(dbUser);
+    
     //console.log(dbUser.password);
     // if(dbUser.password === pass){
     //     console.log("Corect password!");
