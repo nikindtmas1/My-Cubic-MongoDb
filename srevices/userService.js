@@ -18,6 +18,37 @@ function createUser(data){
 
 };
 
+function loginUser(data){
+    let pass = data.password;
+    let name = data.username;
+    
+    return User.findByUsername(name)
+    .then(user => {
+      return Promise.all([bcrypt.compare(pass, user.password), user])
+       
+    })
+    .then(([isValid, user]) => {
+        if(isValid){
+            return user
+        }else {
+            throw { message: 'Username or password are invalid'}
+        }
+    })
+    
+    // bcrypt.hash(pass, 10)
+    // .then(hash => {
+    //   return  pass = hash;
+    // })
+    console.log(dbUser);
+    //console.log(dbUser.password);
+    // if(dbUser.password === pass){
+    //     console.log("Corect password!");
+    // }else{
+    //     console.log('Not corect password!');
+    // }
+}
+
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }
