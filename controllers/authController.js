@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 //const bcrypt = require('bcrypt');
+const { createToken }  = require('../utils/jwtUtils');
+
 
 const userService = require('../srevices/userService');
+
 
 
 router.get('/login', (req, res) => {
@@ -16,13 +19,15 @@ router.post('/login', async (req, res) => {
     // console.log(data.password);
     let user = await userService.loginUser(data);
 
-    if(user){
+    if(!user){
 
-        res.redirect('/')
-    }else {
-
-        res.redirect('404')
+       return res.redirect('404')
     }
+
+    let token = await createToken(user);
+    console.log(token);
+        res.redirect('/')
+    
 });
 
 router.get('/register', (req, res) => {
@@ -34,7 +39,8 @@ router.post('/register', async (req, res) => {
     
     let data = req.body
 
-   await userService.createUser(data)
+ await userService.createUser(data);
+  
 
     res.redirect('/auth/login')
 });
