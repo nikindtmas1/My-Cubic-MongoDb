@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const cookieParser = require('cookie-parser');
-app.use(cookieParser);
+app.use(cookieParser());
 
 const portConfig = require('./config/configPort');
 const expressConfig = require('./config/configExpress');
