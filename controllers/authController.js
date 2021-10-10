@@ -20,7 +20,8 @@ router.post('/login', async (req, res) => {
 
         res.redirect('/')
     }else {
-        throw { message: 'User or password invalid'}
+
+        res.redirect('404')
     }
 });
 
