@@ -46,6 +46,10 @@ router.get('*', (req, res) => {
     res.render('404');
 });
 
+router.get('/delete', (req, res) => {
+    res.render('delete');
+});
+
 function cubeValide(req, res, next){
     let isValid = true;
 
