@@ -58,7 +58,7 @@ router.get('/:cubId/delete',isAuth,async (req, res) => {
 
 router.post('/:cubId/delete',isAuth,async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
-    let cubId = req.params.cubId;
+  
    
    if(!req.user){
        return res.redirect('/auth/login')
@@ -69,8 +69,9 @@ router.post('/:cubId/delete',isAuth,async (req, res) => {
     res.redirect('/cubics');
 });
 
-router.get('/:cubId/edit',isAuth, (req, res) => {
-    res.render('edit');
+router.get('/:cubId/edit',isAuth,async (req, res) => {
+    let result = await cubeService.getOneWithAccessories(req.params.cubId);
+    res.render('edit', {title: 'Edit Cube', result});
 });
 
 router.get('*', (req, res) => {

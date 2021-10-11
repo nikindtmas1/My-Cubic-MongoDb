@@ -58,6 +58,10 @@ function deleteCube(result){
    return Cube.deleteOne(result)
 }
 
+function editCub(){
+
+}
+
 module.exports = {
 
     getAll,
@@ -65,5 +69,6 @@ module.exports = {
     create,
     attachAccessory,
     getOneWithAccessories,
-    deleteCube
+    deleteCube,
+    editCub
 }
