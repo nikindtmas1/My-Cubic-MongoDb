@@ -79,5 +79,5 @@ module.exports = {
     getOneWithAccessories,
     deleteCube,
     editCub,
-    getOneWithoutId
+    getOneWithoutId,
 }

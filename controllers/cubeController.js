@@ -86,8 +86,9 @@ router.post('/:cubId/edit',isAuth,async (req, res) => {
     
     await cubeService.create(editCub);
     let newCub = await cubeService.getOneWithoutId(editCub);
-    let newCubId = newCub._id
-    await cubeService.attachAccessory(newCubId, accessories);
+    
+    
+    //await cubeService.attachAccessories(newCubId, accessories);
     res.redirect('/cubics');
 });
 
