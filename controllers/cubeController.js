@@ -56,6 +56,18 @@ router.get('/:cubId/delete',isAuth,async (req, res) => {
     res.render('delete', {title: 'Delete Cub', result});
 });
 
+router.post('/:cubId/delete',isAuth,async (req, res) => {
+    //let result = await cubeService.getOneWithAccessories(req.params.cubId);
+    let cubId = req.params.cubId;
+   if(!req.user){
+       return res.redirect('/auth/login')
+   }
+
+   await cubeService.deleteCube(cubId);
+   
+    res.redirect('/cubics');
+});
+
 router.get('/:cubId/edit',isAuth, (req, res) => {
     res.render('edit');
 });
