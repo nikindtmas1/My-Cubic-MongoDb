@@ -50,6 +50,10 @@ router.get('/delete', (req, res) => {
     res.render('delete');
 });
 
+router.get('/edit', (req, res) => {
+    res.render('edit');
+});
+
 function cubeValide(req, res, next){
     let isValid = true;
 
