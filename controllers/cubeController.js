@@ -4,6 +4,9 @@ const router = express.Router();
 const cubeService = require('../srevices/cubeService');
 const accessoryService = require('../srevices/accessoryService');
 
+const authMidd = require('../middlewares/authMiddleware');
+
+
 router.get('/', (req, res) => {
     cubeService.getAll(req.query)
     .then(results => {
@@ -45,6 +48,11 @@ router.post('/:cubId/attach', async (req, res) => {
 
 
 router.get('/:cubId/delete', (req, res) => {
+
+   if(!req.user){
+       return res.redirect('/auth/login')
+   }
+   
     res.render('delete');
 });
 
