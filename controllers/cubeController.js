@@ -42,9 +42,7 @@ router.post('/:cubId/attach', async (req, res) => {
     .then(() => res.redirect(`/cubics/details/${req.params.cubId}`))
 });
 
-router.get('*', (req, res) => {
-    res.render('404');
-});
+
 
 router.get('/delete', (req, res) => {
     res.render('delete');
@@ -52,6 +50,10 @@ router.get('/delete', (req, res) => {
 
 router.get('/edit', (req, res) => {
     res.render('edit');
+});
+
+router.get('*', (req, res) => {
+    res.render('404');
 });
 
 function cubeValide(req, res, next){
