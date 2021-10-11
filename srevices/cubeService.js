@@ -24,7 +24,7 @@ async function getAll(query){
    return results;
 }
 
-async function getOne(data){
+async function getOne(id){
 
     let results = await Cube.findById(id).lean();
 
