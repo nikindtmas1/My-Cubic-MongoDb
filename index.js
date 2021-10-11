@@ -10,7 +10,7 @@ const mongooseConfig = require('./config/configMongoose');
 
 const routes = require('./routes');
 
-const auth  = require('./middlewares/authMiddleware');
+const {auth}  = require('./middlewares/authMiddleware');
 app.use(auth);
 
 
