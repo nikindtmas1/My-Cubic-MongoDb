@@ -44,11 +44,11 @@ router.post('/:cubId/attach', async (req, res) => {
 
 
 
-router.get('/delete', (req, res) => {
+router.get('/:cubId/delete', (req, res) => {
     res.render('delete');
 });
 
-router.get('/edit', (req, res) => {
+router.get('/:cubId/edit', (req, res) => {
     res.render('edit');
 });
 
