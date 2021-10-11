@@ -58,8 +58,8 @@ router.get('/:cubId/delete',isAuth,async (req, res) => {
 
 router.post('/:cubId/delete',isAuth,async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
-    //let cubId = req.params.cubId;
-    console.log(result);
+    let cubId = req.params.cubId;
+   
    if(!req.user){
        return res.redirect('/auth/login')
    }

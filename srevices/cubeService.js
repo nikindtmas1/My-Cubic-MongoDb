@@ -1,5 +1,6 @@
 const Cube = require('../models/cubic');
 const Accessory = require('../models/accessory');
+const jwt = require('jsonwebtoken');
 
 
 
@@ -23,7 +24,7 @@ async function getAll(query){
    return results;
 }
 
-async function getOne(id){
+async function getOne(data){
 
     let results = await Cube.findById(id).lean();
 
@@ -52,8 +53,9 @@ function getOneWithAccessories(id){
     return Cube.findById(id).populate('accessories').lean();
 }
 
-function deleteCube(id){
-    Cube.deleteOne(id)
+function deleteCube(result){
+   
+   return Cube.deleteOne(result)
 }
 
 module.exports = {
