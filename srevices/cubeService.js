@@ -31,6 +31,12 @@ async function getOne(id){
     return results;
 }
 
+async function getOneWithoutId(data){
+    let result = await Cube.findOne(data);
+
+    return result;
+}
+
 function create(data){
     
     let cube = new Cube(data);
@@ -72,5 +78,6 @@ module.exports = {
     attachAccessory,
     getOneWithAccessories,
     deleteCube,
-    editCub
+    editCub,
+    getOneWithoutId
 }

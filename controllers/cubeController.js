@@ -83,8 +83,11 @@ router.post('/:cubId/edit',isAuth,async (req, res) => {
     let accessories = await accessoryService.getAllWithout(oldCub.accessories);
 
     await cubeService.deleteCube(oldCub);
+    
     await cubeService.create(editCub);
-    //await cubeService.attachAccessory(req.params.cubId, req.body.accessory)
+    let newCub = await cubeService.getOneWithoutId(editCub);
+    let newCubId = newCub._id
+    await cubeService.attachAccessory(newCubId, accessories);
     res.redirect('/cubics');
 });
 
