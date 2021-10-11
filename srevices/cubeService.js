@@ -58,8 +58,10 @@ function deleteCube(result){
    return Cube.deleteOne(result)
 }
 
-function editCub(){
+function editCub(id){
+    let results = await Cube.findById(id).lean();
 
+    return results;
 }
 
 module.exports = {
