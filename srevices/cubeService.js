@@ -58,7 +58,7 @@ function deleteCube(result){
    return Cube.deleteOne(result)
 }
 
-function editCub(id){
+async function editCub(id){
     let results = await Cube.findById(id).lean();
 
     return results;
