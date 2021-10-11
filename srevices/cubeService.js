@@ -52,11 +52,16 @@ function getOneWithAccessories(id){
     return Cube.findById(id).populate('accessories').lean();
 }
 
+function deleteCube(id){
+    Cube.deleteOne(id)
+}
+
 module.exports = {
 
     getAll,
     getOne,
     create,
     attachAccessory,
-    getOneWithAccessories
+    getOneWithAccessories,
+    deleteCube
 }
