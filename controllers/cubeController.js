@@ -4,7 +4,7 @@ const router = express.Router();
 const cubeService = require('../srevices/cubeService');
 const accessoryService = require('../srevices/accessoryService');
 
-const authMidd = require('../middlewares/authMiddleware');
+const { isAuth } = require('../middlewares/authMiddleware');
 
 
 router.get('/', (req, res) => {
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/create', (req, res) => {
+router.get('/create',isAuth, (req, res) => {
     res.render('create');
 });
 
@@ -33,7 +33,7 @@ router.get('/details/:cubId', async (req, res) => {
     res.render('details', {title: 'Cube Details', result})
 });
 
-router.get('/:cubId/attach', async (req, res) => {
+router.get('/:cubId/attach',isAuth, async (req, res) => {
     let result = await cubeService.getOne(req.params.cubId);
     let accessories = await accessoryService.getAllWithout(result.accessories);
 
@@ -47,7 +47,7 @@ router.post('/:cubId/attach', async (req, res) => {
 
 
 
-router.get('/:cubId/delete', (req, res) => {
+router.get('/:cubId/delete',isAuth, (req, res) => {
 
    if(!req.user){
        return res.redirect('/auth/login')
@@ -56,7 +56,7 @@ router.get('/:cubId/delete', (req, res) => {
     res.render('delete');
 });
 
-router.get('/:cubId/edit', (req, res) => {
+router.get('/:cubId/edit',isAuth, (req, res) => {
     res.render('edit');
 });
 
