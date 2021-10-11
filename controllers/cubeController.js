@@ -76,12 +76,15 @@ router.get('/:cubId/edit',isAuth,async (req, res) => {
 });
 
 router.post('/:cubId/edit',isAuth,async (req, res) => {
-    let result = await cubeService.getOneWithAccessories(req.params.cubId);
-    let accessories = await accessoryService.getAllWithout(result.accessories);
+    let editCub = req.body;
 
-    let data = {result, accessories};
+    //cubeService.create(data);
+    let oldCub = await cubeService.getOne(req.params.cubId);
+    let accessories = await accessoryService.getAllWithout(oldCub.accessories);
 
-    console.log(data);
+    await cubeService.deleteCube(oldCub);
+    await cubeService.create(editCub);
+    //await cubeService.attachAccessory(req.params.cubId, req.body.accessory)
     res.redirect('/cubics');
 });
 
