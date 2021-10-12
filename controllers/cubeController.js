@@ -76,19 +76,20 @@ router.get('/:cubId/edit',isAuth,async (req, res) => {
 });
 
 router.post('/:cubId/edit',isAuth,async (req, res) => {
-    let editCub = req.body;
+    
+    let { name, description, imageUrl, difficultyLevel } = req.body;
 
-    //cubeService.create(data);
-    let oldCub = await cubeService.getOne(req.params.cubId);
-    let accessories = await accessoryService.getAllWithout(oldCub.accessories);
-
-    await cubeService.deleteCube(oldCub);
+    await cubeService.updateOne(req.params.cubId ,{name, description, imageUrl, difficultyLevel})
     
-    await cubeService.create(editCub);
-    let newCub = await cubeService.getOneWithoutId(editCub);
+    // let editCub = req.body;    
+    // let oldCub = await cubeService.getOne(req.params.cubId);
+    // let accessories = await accessoryService.getAllWithout(oldCub.accessories);
+    // await cubeService.deleteCube(oldCub);
+    // await cubeService.create(editCub);
+    // let newCub = await cubeService.getOneWithoutId(editCub);
     
     
-    //await cubeService.attachAccessories(newCubId, accessories);
+    
     res.redirect('/cubics');
 });
 
