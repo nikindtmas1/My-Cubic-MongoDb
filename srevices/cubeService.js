@@ -70,6 +70,12 @@ async function editCub(id){
     return results;
 }
 
+async function updateOne(id, data){
+    let results = await Cube.findByIdAndUpdate(id, data).lean();
+
+    return results;
+}
+
 module.exports = {
 
     getAll,
@@ -78,6 +84,6 @@ module.exports = {
     attachAccessory,
     getOneWithAccessories,
     deleteCube,
-    editCub,
+    updateOne,
     getOneWithoutId,
 }
