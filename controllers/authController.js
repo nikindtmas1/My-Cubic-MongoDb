@@ -48,4 +48,9 @@ router.post('/register', async (req, res) => {
     res.redirect('/auth/login')
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie('cookieToken');
+    res.redirect('/cubics')
+});
+
 module.exports = router
