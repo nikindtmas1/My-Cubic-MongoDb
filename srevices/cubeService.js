@@ -38,8 +38,8 @@ async function getOneWithoutId(data){
 }
 
 function create(data, userId){
-    
-    let cube = new Cube(data, userId);
+    let {name, imageUrl, description, difficultyLevel, accessories} = data;
+    let cube = new Cube({name, imageUrl, description, difficultyLevel, accessories , userId});
 
    return cube.save();
 
