@@ -26,7 +26,11 @@ const cubicSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Accessory',
         }
-    ]
+    ],
+    userId: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Cube', cubicSchema);
