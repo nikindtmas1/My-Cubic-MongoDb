@@ -22,7 +22,7 @@ router.get('/create',isAuth, (req, res) => {
 router.post('/create', cubeValide, (req, res) => {
     let data = req.body;
 
-    cubeService.create(data);
+    cubeService.create(data, req.user._id);
 
     res.redirect('/cubics');
 });
