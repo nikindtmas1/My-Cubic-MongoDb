@@ -37,9 +37,9 @@ async function getOneWithoutId(data){
     return result;
 }
 
-function create(data){
+function create(data, userId){
     
-    let cube = new Cube(data);
+    let cube = new Cube(data, userId);
 
    return cube.save();
 
