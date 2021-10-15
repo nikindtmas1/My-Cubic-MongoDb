@@ -5,6 +5,8 @@ const cubeService = require('../srevices/cubeService');
 const accessoryService = require('../srevices/accessoryService');
 
 const { isAuth } = require('../middlewares/authMiddleware');
+const { isOwnCube } = require('../middlewares/authCubeMiddleware');
+const { errHandler } = require('../middlewares/errorHandlerMiddleware');
 
 
 router.get('/', (req, res) => {
@@ -49,7 +51,7 @@ router.post('/:cubId/attach', async (req, res) => {
 
 
 
-router.get('/:cubId/delete',isAuth,async (req, res) => {
+router.get('/:cubId/delete', errHandler, isAuth ,async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
    if(!req.user){
        return res.redirect('/auth/login')
@@ -58,7 +60,7 @@ router.get('/:cubId/delete',isAuth,async (req, res) => {
     res.render('delete', {title: 'Delete Cub', result});
 });
 
-router.post('/:cubId/delete',isAuth,async (req, res) => {
+router.post('/:cubId/delete',isAuth ,async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
   
    
@@ -71,13 +73,13 @@ router.post('/:cubId/delete',isAuth,async (req, res) => {
     res.redirect('/cubics');
 });
 
-router.get('/:cubId/edit',isAuth,async (req, res) => {
+router.get('/:cubId/edit',isAuth ,async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
  
     res.render('edit', {title: 'Edit Cube', result});
 });
 
-router.post('/:cubId/edit',isAuth,async (req, res) => {
+router.post('/:cubId/edit',isAuth ,async (req, res) => {
     
     let { name, description, imageUrl, difficultyLevel } = req.body;
 
