@@ -30,7 +30,9 @@ router.post('/create', cubeValide, (req, res) => {
 router.get('/details/:cubId', async (req, res) => {
     let result = await cubeService.getOneWithAccessories(req.params.cubId);
 
-    res.render('details', {title: 'Cube Details', result})
+    let isOwn = result.userId == req.user._id;
+
+    res.render('details', { title: 'Cube Details', result, isOwn })
 });
 
 router.get('/:cubId/attach',isAuth, async (req, res) => {
