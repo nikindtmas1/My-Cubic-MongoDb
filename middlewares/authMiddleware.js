@@ -28,7 +28,9 @@ function isAuth(req, res, next){
     }
 
     next();
-}
+};
+
+
 
 module.exports = {
     auth,
