@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 //const connectStr = 'mongodb://localhost:27017/cubicle';
-const connectStr = 'mongodb+srv://cluster0.3bvrs.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority';
+const connectStr = 'mongodb+srv://niki:asdasd123123@cluster0.3bvrs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 module.exports = (app) => {
 
